@@ -1,6 +1,6 @@
 {
   "name": "ipfs-peer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "IPFS Peer abstraction Node.js implementation",
   "main": "src/index.js",
   "scripts": {
