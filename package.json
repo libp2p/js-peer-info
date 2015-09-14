@@ -1,6 +1,6 @@
 {
   "name": "ipfs-peer",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "IPFS Peer abstraction Node.js implementation",
   "main": "src/index.js",
   "scripts": {
@@ -17,7 +17,9 @@
   "keywords": [
     "IPFS"
   ],
-  "engines" : { "node" : "^4.0.0" },
+  "engines": {
+    "node": "^4.0.0"
+  },
   "author": "David Dias <daviddias@ipfs.io>",
   "license": "MIT",
   "bugs": {
