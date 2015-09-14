@@ -17,6 +17,7 @@
   "keywords": [
     "IPFS"
   ],
+  "engines" : { "node" : "^4.0.0" },
   "author": "David Dias <daviddias@ipfs.io>",
   "license": "MIT",
   "bugs": {
