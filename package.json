@@ -1,14 +1,15 @@
 {
   "name": "peer-info",
-  "version": "0.3.3",
-  "description": "IPFS Peer abstraction Node.js implementation",
+  "version": "0.3.2",
+  "description": "IPFS Peer abstraction JavaScript implementation",
   "main": "src/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/lab tests/*-test.js",
-    "coverage": "./node_modules/.bin/lab -t 100 tests/*-test.js",
-    "codestyle": "./node_modules/.bin/standard --format",
-    "lint": "jshint .",
-    "validate": "npm ls"
+    "test:node": "node tests/*-test.js",
+    "lint": "standard",
+    "test": "npm run test:node",
+    "test:browser": "./node_modules/.bin/zuul --browser-version $BROWSER_VERSION --browser-name $BROWSER_NAME -- tests/peer-test.js",
+    "test:browser:q": "BROWSER_VERSION=46 BROWSER_NAME=chrome npm run test:browser",
+    "build": "./node_modules/.bin/browserify -s PeerInfo -e ./src/index.js | tee dist/peer-info.js | ./node_modules/.bin/uglifyjs -m > dist/peer-info.min.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
     "IPFS"
   ],
   "engines": {
-    "node": "^4.0.0"
+    "node": "^4.2.0"
   },
   "author": "David Dias <daviddias@ipfs.io>",
   "license": "MIT",
@@ -27,16 +28,16 @@
   },
   "homepage": "https://github.com/diasdavid/js-peer-info",
   "pre-commit": [
-    "codestyle",
+    "lint",
     "test"
   ],
   "devDependencies": {
-    "code": "^1.4.1",
-    "lab": "^5.13.0",
+    "multiaddr": "^1.1.1",
+    "peer-id": "^0.4.0",
     "pre-commit": "^1.1.1",
-    "standard": "^4.5.2"
+    "standard": "^4.5.2",
+    "tape": "^4.2.2",
+    "zuul": "^3.7.2"
   },
-  "dependencies": {
-    "peer-id": "^0.3.0"
-  }
+  "dependencies": {}
 }

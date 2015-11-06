@@ -2,8 +2,6 @@
  * Peer represents a peer on the IPFS network
  */
 
-var PeerId = require('peer-id')
-
 exports = module.exports = Peer
 
 function Peer (id, multiaddrs) {
@@ -13,8 +11,8 @@ function Peer (id, multiaddrs) {
     throw new Error('Peer must be called with new')
   }
 
-  if (!(id instanceof PeerId)) {
-    throw new Error('Peer must be created with an instance of PeerId')
+  if (!Array.isArray(multiaddrs)) {
+    multiaddrs = [multiaddrs]
   }
 
   self.id = id
