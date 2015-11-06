@@ -11,6 +11,10 @@ function Peer (id, multiaddrs) {
     throw new Error('Peer must be called with new')
   }
 
+  if (!Array.isArray(multiaddrs)) {
+    multiaddrs = [multiaddrs]
+  }
+
   self.id = id
   self.multiaddrs = multiaddrs
 }
