@@ -4,12 +4,11 @@
   "description": "IPFS Peer abstraction JavaScript implementation",
   "main": "src/index.js",
   "scripts": {
-    "test:node": "node tests/*-test.js",
     "lint": "standard",
-    "test": "npm run test:node",
-    "test:browser": "./node_modules/.bin/zuul --browser-version $BROWSER_VERSION --browser-name $BROWSER_NAME -- tests/peer-test.js",
-    "test:browser:q": "BROWSER_VERSION=46 BROWSER_NAME=chrome npm run test:browser",
-    "build": "./node_modules/.bin/browserify -s PeerInfo -e ./src/index.js | tee dist/peer-info.js | ./node_modules/.bin/uglifyjs -m > dist/peer-info.min.js"
+    "test": "npm run test:node && npm run test:browser",
+    "test:node": "mocha tests/*-test.js",
+    "test:browser": "karma start karma.conf.js",
+    "coverage": "istanbul cover --print both -- _mocha tests/*-test.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +18,7 @@
     "IPFS"
   ],
   "engines": {
-    "node": "^4.2.0"
+    "node": "^4.3.0"
   },
   "author": "David Dias <daviddias@ipfs.io>",
   "license": "MIT",
@@ -32,12 +31,23 @@
     "test"
   ],
   "devDependencies": {
+    "buffer-loader": "0.0.1",
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.2",
+    "json-loader": "^0.5.4",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-cli": "^0.1.2",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-mocha": "^0.2.1",
+    "karma-spec-reporter": "0.0.24",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
     "multiaddr": "^1.1.1",
-    "peer-id": "^0.4.0",
-    "pre-commit": "^1.1.1",
-    "standard": "^4.5.2",
-    "tape": "^4.2.2",
-    "zuul": "^3.7.2"
+    "peer-id": "^0.5.1",
+    "pre-commit": "^1.1.2",
+    "standard": "^6.0.7",
+    "webpack": "^1.12.14"
   },
   "dependencies": {}
 }
