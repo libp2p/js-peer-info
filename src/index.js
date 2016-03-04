@@ -59,6 +59,21 @@ function Peer (peerId) {
     })
   }
 
+  this.multiaddr.replace = (existing, fresh) => {
+    if (!Array.isArray(existing)) {
+      existing = [existing]
+    }
+    if (!Array.isArray(fresh)) {
+      fresh = [fresh]
+    }
+    existing.forEach((m) => {
+      this.multiaddr.rm(m)
+    })
+    fresh.forEach((m) => {
+      this.multiaddr.add(m)
+    })
+  }
+
   // TODO: add features to fetch multiaddr using filters
   // look at https://github.com/whyrusleeping/js-mafmt/blob/master/src/index.js
 }

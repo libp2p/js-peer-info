@@ -65,4 +65,31 @@ describe('peer-info', function (done) {
     expect(pi.multiaddrs.length).to.equal(1)
     done()
   })
+
+  it('replace multiaddr', (done) => {
+    const pi = new PeerInfo()
+    expect(pi).to.exist
+    const mh1 = Multiaddr('/ip4/127.0.0.1/tcp/5001')
+    const mh2 = Multiaddr('/ip4/127.0.0.1/tcp/5002')
+    const mh3 = Multiaddr('/ip4/127.0.0.1/tcp/5003')
+    const mh4 = Multiaddr('/ip4/127.0.0.1/tcp/5004')
+    const mh5 = Multiaddr('/ip4/127.0.0.1/tcp/5005')
+    const mh6 = Multiaddr('/ip4/127.0.0.1/tcp/5006')
+
+    pi.multiaddr.add(mh1)
+    pi.multiaddr.add(mh2)
+    pi.multiaddr.add(mh3)
+    pi.multiaddr.add(mh4)
+
+    expect(pi.multiaddrs.length).to.equal(4)
+
+    const old = [mh2, mh4]
+    const fresh = [mh5, mh6]
+
+    pi.multiaddr.replace(old, fresh)
+
+    expect(pi.multiaddrs.length).to.equal(4)
+
+    done()
+  })
 })
