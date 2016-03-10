@@ -44,7 +44,7 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
     "multiaddr": "^1.1.1",
-    "peer-id": "^0.5.1",
+    "peer-id": "^0.6.0",
     "pre-commit": "^1.1.2",
     "standard": "^6.0.7",
     "webpack": "^1.12.14"
