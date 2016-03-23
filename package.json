@@ -2,13 +2,16 @@
   "name": "peer-info",
   "version": "0.6.0",
   "description": "IPFS Peer abstraction JavaScript implementation",
-  "main": "src/index.js",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
-    "lint": "standard",
-    "test": "npm run test:node && npm run test:browser",
-    "test:node": "mocha tests/*-test.js",
-    "test:browser": "karma start karma.conf.js",
-    "coverage": "istanbul cover --print both -- _mocha tests/*-test.js"
+    "lint": "dignified-lint",
+    "build": "dignified-build",
+    "test": "dignified-test",
+    "test:node": "dignified-test node",
+    "test:browser": "dignified-test browser",
+    "release": "dignified-release",
+    "coverage": "istanbul cover --print both -- _mocha tests/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -33,21 +36,20 @@
   "devDependencies": {
     "buffer-loader": "0.0.1",
     "chai": "^3.5.0",
+    "dignified.js": "github:dignifiedquire/dignified.js",
     "istanbul": "^0.4.2",
-    "json-loader": "^0.5.4",
-    "karma": "^0.13.19",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-cli": "^0.1.2",
-    "karma-firefox-launcher": "^0.1.7",
-    "karma-mocha": "^0.2.1",
-    "karma-spec-reporter": "0.0.24",
-    "karma-webpack": "^1.7.0",
-    "mocha": "^2.4.5",
     "multiaddr": "^1.1.1",
     "peer-id": "^0.6.0",
-    "pre-commit": "^1.1.2",
-    "standard": "^6.0.7",
-    "webpack": "^1.12.14"
+    "pre-commit": "^1.1.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "dignified": {
+    "webpack": {
+      "resolve": {
+        "alias": {
+          "node-forge": "../deps/forge.bundle.js"
+        }
+      }
+    }
+  }
 }

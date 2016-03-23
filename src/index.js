@@ -1,11 +1,10 @@
-/*
- * Peer represents a peer on the IPFS network
- */
+'use strict'
 
 const Id = require('peer-id')
 
 exports = module.exports = Peer
 
+// Peer represents a peer on the IPFS network
 function Peer (peerId) {
   if (!(this instanceof Peer)) {
     return new Peer(peerId)
