@@ -1,11 +1,12 @@
 /* eslint-env mocha */
+'use strict'
 
 const expect = require('chai').expect
 const Id = require('peer-id')
 const Multiaddr = require('multiaddr')
 const PeerInfo = require('../src')
 
-describe('peer-info', function (done) {
+describe('peer-info', function () {
   this.timeout(10000)
 
   it('create with Id', (done) => {

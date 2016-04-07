@@ -1,7 +1,7 @@
-
 language: node_js
 node_js:
-  - "4.0"
+  - 4
+  - 5
 
 branches:
   only:
@@ -19,4 +19,5 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
+  - npm run lint
   - npm test
