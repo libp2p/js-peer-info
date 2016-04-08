@@ -2,15 +2,15 @@
 'use strict'
 
 const expect = require('chai').expect
-const Id = require('peer-id')
+const PeerId = require('peer-id')
 const Multiaddr = require('multiaddr')
 const PeerInfo = require('../src')
 
 describe('peer-info', function () {
-  this.timeout(10000)
+  this.timeout(20000)
 
   it('create with Id', (done) => {
-    const id = Id.create()
+    const id = PeerId.create()
     const pi = new PeerInfo(id)
     expect(pi).to.exist
     expect(pi.id).to.exist
