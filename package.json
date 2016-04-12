@@ -11,7 +11,7 @@
     "test:node": "dignified-test node",
     "test:browser": "dignified-test browser",
     "release": "dignified-release",
-    "coverage": "istanbul cover --print both -- _mocha tests/*.spec.js"
+    "coverage": "dignified-coverage"
   },
   "repository": {
     "type": "git",
@@ -37,9 +37,8 @@
     "buffer-loader": "0.0.1",
     "chai": "^3.5.0",
     "dignified.js": "^1.0.0",
-    "istanbul": "^0.4.2",
     "multiaddr": "^1.1.1",
-    "peer-id": "^0.6.0",
+    "peer-id": "^0.6.5",
     "pre-commit": "^1.1.2"
   },
   "dependencies": {},
@@ -47,7 +46,7 @@
     "webpack": {
       "resolve": {
         "alias": {
-          "node-forge": "../deps/forge.bundle.js"
+          "node-forge": "../vendor/forge.bundle.js"
         }
       }
     }

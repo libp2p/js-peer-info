@@ -92,8 +92,7 @@ var PeerInfo = require('peer-info')
 
 ## Browser: `<script>` Tag
 
-Loading this module through a script tag will make the `PeerInfo` obj available
-in the global namespace.
+Loading this module through a script tag will make the `PeerInfo` obj available in the global namespace.
 
 ```html
 <script src="https://npmcdn.com/peer-info/dist/index.min.js"></script>
