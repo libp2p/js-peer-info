@@ -38,7 +38,7 @@
     "chai": "^3.5.0",
     "dignified.js": "^1.0.0",
     "multiaddr": "^1.1.1",
-    "peer-id": "^0.6.5",
+    "peer-id": "^0.6.6",
     "pre-commit": "^1.1.2"
   },
   "dependencies": {},
