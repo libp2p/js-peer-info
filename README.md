@@ -57,9 +57,14 @@ a [multiaddr](https://github.com/jbenet/js-multiaddr).
 
 ## peer.multiaddr.addSafe(addr)
 
-Adds a new multiaddress that `peer` can be reached at.
+The `addSafe` call, in comparison to `add`, will only add the multiaddr to
+`multiaddrs` if the same multiaddr tries to be added twice.
 
-..Safely? **TODO**
+This is a simple mechanism to prevent `multiaddrs` from becoming bloated with
+unusable addresses, which happens when we exchange observed multiaddrs with
+peers which will not provide a useful multiaddr to be shared to the rest of the
+network (e.g. a multiaddr referring to a peer inside a LAN being shared to the
+outside world).
 
 ## peer.multiaddr.rm(addr)
 
