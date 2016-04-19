@@ -38,12 +38,14 @@
     "aegir": "^2.1.1",
     "buffer-loader": "0.0.1",
     "chai": "^3.5.0",
-    "multiaddr": "^1.1.1",
-    "peer-id": "^0.6.6",
+    "multiaddr": "^1.4.0",
     "pre-commit": "^1.1.2"
   },
-  "dependencies": {},
-  "dignified": {
+  "dependencies": {
+    "babel-runtime": "^6.6.1",
+    "peer-id": "^0.6.6"
+  },
+  "aegir": {
     "webpack": {
       "resolve": {
         "alias": {
