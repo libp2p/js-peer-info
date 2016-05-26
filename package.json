@@ -47,15 +47,6 @@
     "babel-runtime": "^6.6.1",
     "peer-id": "^0.7.0"
   },
-  "aegir": {
-    "webpack": {
-      "resolve": {
-        "alias": {
-          "node-forge": "../vendor/forge.bundle.js"
-        }
-      }
-    }
-  },
   "contributors": [
     "David Dias <daviddias.p@gmail.com>",
     "David Dias <mail@daviddias.me>",
