@@ -11,6 +11,8 @@
     "test:node": "aegir-test node",
     "test:browser": "aegir-test browser",
     "release": "aegir-release",
+    "release-minor": "aegir-release --type minor",
+    "release-major": "aegir-release --type major",
     "coverage": "aegir-coverage",
     "coverage-publish": "aegir-coverage publish"
   },
@@ -35,7 +37,7 @@
     "test"
   ],
   "devDependencies": {
-    "aegir": "^2.1.1",
+    "aegir": "^3.1.1",
     "buffer-loader": "0.0.1",
     "chai": "^3.5.0",
     "multiaddr": "^1.4.0",
@@ -43,7 +45,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.6.1",
-    "peer-id": "^0.6.6"
+    "peer-id": "^0.7.0"
   },
   "aegir": {
     "webpack": {
