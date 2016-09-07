@@ -1,8 +1,17 @@
 'use strict'
 
 const Id = require('peer-id')
+const multiaddr = require('multiaddr')
 
 exports = module.exports = Peer
+
+function ensureMultiaddr (addr) {
+  if (multiaddr.isMultiaddr(addr)) {
+    return addr
+  }
+
+  return multiaddr(addr)
+}
 
 // Peer represents a peer on the IPFS network
 function Peer (peerId) {
@@ -21,37 +30,43 @@ function Peer (peerId) {
 
   this.multiaddr = {}
 
-  this.multiaddr.add = (multiaddr) => {
+  this.multiaddr.add = (addr) => {
+    addr = ensureMultiaddr(addr)
+
     var exists = false
     this.multiaddrs.some((m, i) => {
-      if (m.toString() === multiaddr.toString()) {
+      if (m.equals(addr)) {
         exists = true
         return true
       }
     })
     if (!exists) {
-      this.multiaddrs.push(multiaddr)
+      this.multiaddrs.push(addr)
     }
   }
 
   // to prevent multiaddr explosion
-  this.multiaddr.addSafe = (multiaddr) => {
+  this.multiaddr.addSafe = (addr) => {
+    addr = ensureMultiaddr(addr)
+
     var check = false
     observedMultiaddrs.some((m, i) => {
-      if (m.toString() === multiaddr.toString()) {
-        this.multiaddr.add(multiaddr)
+      if (m.equals(addr)) {
+        this.multiaddr.add(addr)
         observedMultiaddrs.splice(i, 1)
         check = true
       }
     })
     if (!check) {
-      observedMultiaddrs.push(multiaddr)
+      observedMultiaddrs.push(addr)
     }
   }
 
-  this.multiaddr.rm = (multiaddr) => {
+  this.multiaddr.rm = (addr) => {
+    addr = ensureMultiaddr(addr)
+
     this.multiaddrs.some((m, i) => {
-      if (m.toString() === multiaddr.toString()) {
+      if (m.equals(addr)) {
         this.multiaddrs.splice(i, 1)
         return true
       }
