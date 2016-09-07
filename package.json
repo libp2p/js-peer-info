@@ -1,6 +1,6 @@
 {
   "name": "peer-info",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "IPFS Peer abstraction JavaScript implementation",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
