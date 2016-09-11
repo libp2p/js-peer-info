@@ -96,9 +96,9 @@ var PeerInfo = require('peer-info')
 Loading this module through a script tag will make the `PeerInfo` obj available in the global namespace.
 
 ```html
-<script src="https://npmcdn.com/peer-info/dist/index.min.js"></script>
+<script src="https://unpkg.com/peer-info/dist/index.min.js"></script>
 <!-- OR -->
-<script src="https://npmcdn.com/peer-info/dist/index.js"></script>
+<script src="https://unpkg.com/peer-info/dist/index.js"></script>
 ```
 
 # License
