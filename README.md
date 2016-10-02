@@ -9,10 +9,10 @@ peer-info JavaScript implementation
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 
 > A PeerInfo object contains information about a
-> [PeerID](https://github.com/diasdavid/js-peer-id) and its
-> [multiaddrs](https://github.com/jbenet/js-multiaddr). This module is used by
+> [PeerID](https://github.com/libp2p/js-peer-id) and its
+> [multiaddrs](https://github.com/libp2p/js-multiaddr). This module is used by
 > [IPFS](https://github.com/ipfs/ipfs) and
-> [libp2p](https://github.com/diasdavid/js-libp2p).
+> [libp2p](https://github.com/libp2p/js-libp2p).
 
 # Example
 
@@ -41,7 +41,7 @@ const PeerInfo = require('peer-info')
 ## const peer = new PeerInfo()
 
 Creates a new PeerInfo instance and also generates a new underlying
-[PeerID](https://github.com/diasdavid/js-peer-id) for it.
+[PeerID](https://github.com/libp2p/js-peer-id) for it.
 
 ## const peer = new PeerInfo(peerId)
 
@@ -54,7 +54,7 @@ A list of multiaddresses instances that `peer` can be reached at.
 ## peer.multiaddr.add(addr)
 
 Adds a new multiaddress that `peer` can be reached at. `addr` is an instance of
-a [multiaddr](https://github.com/jbenet/js-multiaddr).
+a [multiaddr](https://github.com/libp2p/js-multiaddr).
 
 ## peer.multiaddr.addSafe(addr)
 
