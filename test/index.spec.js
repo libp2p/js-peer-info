@@ -6,48 +6,72 @@ const PeerId = require('peer-id')
 const Multiaddr = require('multiaddr')
 const PeerInfo = require('../src')
 
-describe('peer-info', function () {
-  this.timeout(20000)
+describe('peer-info', () => {
+  let pi
 
-  it('create with Id', () => {
-    const id = PeerId.create()
-    const pi = new PeerInfo(id)
-    expect(pi).to.exist
-    expect(pi.id).to.exist
-    expect(pi.id).to.deep.equal(id)
+  beforeEach((done) => {
+    PeerInfo.create((err, _pi) => {
+      if (err) {
+        return done(err)
+      }
+      pi = _pi
+      done()
+    })
   })
 
-  it('create without passing an Id', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
-    expect(pi.id).to.exist
+  it('create with Id', (done) => {
+    PeerId.create((err, id) => {
+      expect(err).to.not.exist
+      const pi = new PeerInfo(id)
+      const pi2 = PeerInfo(id)
+      expect(pi.id).to.exist
+      expect(pi.id).to.deep.equal(id)
+      expect(pi2).to.exist
+      expect(pi2.id).to.exist
+      expect(pi2.id).to.deep.equal(id)
+      done()
+    })
   })
 
-  it('create without "new"', () => {
-    const pi = PeerInfo()
-    expect(pi).to.exist
-    expect(pi.id).to.exist
+  it('throws when not passing an Id', () => {
+    expect(
+      () => new PeerInfo()
+    ).to.throw()
+  })
+
+  it('PeerInfo.create', (done) => {
+    PeerInfo.create((err, pi) => {
+      expect(err).to.not.exist
+      expect(pi.id).to.exist
+      done()
+    })
+  })
+
+  it('PeerInfo.create with existing id', (done) => {
+    PeerId.create((err, id) => {
+      expect(err).to.not.exist
+      PeerInfo.create(id, (err, pi) => {
+        expect(err).to.not.exist
+        expect(pi.id).to.exist
+        expect(pi.id).to.deep.equal(id)
+        done()
+      })
+    })
   })
 
   it('add multiaddr', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
     const mh = Multiaddr('/ip4/127.0.0.1/tcp/5001')
     pi.multiaddr.add(mh)
     expect(pi.multiaddrs.length).to.equal(1)
   })
 
   it('add multiaddr that are buffers', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
     const mh = Multiaddr('/ip4/127.0.0.1/tcp/5001')
     pi.multiaddr.add(mh.buffer)
     expect(pi.multiaddrs[0] instanceof Multiaddr).to.equal(true)
   })
 
   it('add repeated multiaddr', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
     const mh = Multiaddr('/ip4/127.0.0.1/tcp/5001')
     pi.multiaddr.add(mh)
     expect(pi.multiaddrs.length).to.equal(1)
@@ -56,8 +80,6 @@ describe('peer-info', function () {
   })
 
   it('rm multiaddr', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
     const mh = Multiaddr('/ip4/127.0.0.1/tcp/5001')
     pi.multiaddr.add(mh)
     expect(pi.multiaddrs.length).to.equal(1)
@@ -66,8 +88,6 @@ describe('peer-info', function () {
   })
 
   it('addSafe - avoid multiaddr explosion', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
     const mh = Multiaddr('/ip4/127.0.0.1/tcp/5001')
     const mh2 = Multiaddr('/ip4/127.0.0.1/tcp/9002')
     const mh3 = Multiaddr('/ip4/127.0.0.1/tcp/9009')
@@ -81,8 +101,6 @@ describe('peer-info', function () {
   })
 
   it('addSafe - multiaddr that are buffers', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
     const mh = Multiaddr('/ip4/127.0.0.1/tcp/5001')
     pi.multiaddr.addSafe(mh.buffer)
     pi.multiaddr.addSafe(mh.buffer)
@@ -90,8 +108,6 @@ describe('peer-info', function () {
   })
 
   it('replace multiaddr', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
     const mh1 = Multiaddr('/ip4/127.0.0.1/tcp/5001')
     const mh2 = Multiaddr('/ip4/127.0.0.1/tcp/5002')
     const mh3 = Multiaddr('/ip4/127.0.0.1/tcp/5003')
@@ -115,8 +131,6 @@ describe('peer-info', function () {
   })
 
   it('replace multiaddr (no arrays)', () => {
-    const pi = new PeerInfo()
-    expect(pi).to.exist
     const mh1 = Multiaddr('/ip4/127.0.0.1/tcp/5001')
     const mh2 = Multiaddr('/ip4/127.0.0.1/tcp/5002')
     const mh3 = Multiaddr('/ip4/127.0.0.1/tcp/5003')
