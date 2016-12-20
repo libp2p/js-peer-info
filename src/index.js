@@ -2,7 +2,7 @@
 
 const Id = require('peer-id')
 const multiaddr = require('multiaddr')
-const uniqBy = require('lodash').uniqBy
+const uniqBy = require('lodash.uniqby')
 
 exports = module.exports = PeerInfo
 
