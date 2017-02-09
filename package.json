@@ -36,15 +36,15 @@
     "test"
   ],
   "devDependencies": {
-    "aegir": "^9.3.0",
+    "aegir": "^10.0.0",
     "buffer-loader": "0.0.1",
     "chai": "^3.5.0",
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
+    "multiaddr": "^2.2.1",
     "lodash.uniqby": "^4.7.0",
-    "multiaddr": "^2.1.1",
-    "peer-id": "^0.8.1"
+    "peer-id": "^0.8.2"
   },
   "contributors": [
     "David Dias <daviddias.p@gmail.com>",
