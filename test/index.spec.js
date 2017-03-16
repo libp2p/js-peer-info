@@ -1,7 +1,10 @@
 /* eslint-env mocha */
 'use strict'
 
-const expect = require('chai').expect
+const chai = require('chai')
+const dirtyChai = require('dirty-chai')
+chai.use(dirtyChai)
+const expect = chai.expect
 const PeerId = require('peer-id')
 const Multiaddr = require('multiaddr')
 const PeerInfo = require('../src')
@@ -21,13 +24,13 @@ describe('peer-info', () => {
 
   it('create with Id', (done) => {
     PeerId.create((err, id) => {
-      expect(err).to.not.exist
+      expect(err).to.not.exist()
       const pi = new PeerInfo(id)
       const pi2 = PeerInfo(id)
-      expect(pi.id).to.exist
+      expect(pi.id).to.exist()
       expect(pi.id).to.deep.equal(id)
-      expect(pi2).to.exist
-      expect(pi2.id).to.exist
+      expect(pi2).to.exist()
+      expect(pi2.id).to.exist()
       expect(pi2.id).to.deep.equal(id)
       done()
     })
@@ -41,18 +44,18 @@ describe('peer-info', () => {
 
   it('PeerInfo.create', (done) => {
     PeerInfo.create((err, pi) => {
-      expect(err).to.not.exist
-      expect(pi.id).to.exist
+      expect(err).to.not.exist()
+      expect(pi.id).to.exist()
       done()
     })
   })
 
-  it('PeerInfo.create with existing id', (done) => {
+  it('PeerInfo.create with exist()ing id', (done) => {
     PeerId.create((err, id) => {
-      expect(err).to.not.exist
+      expect(err).to.not.exist()
       PeerInfo.create(id, (err, pi) => {
-        expect(err).to.not.exist
-        expect(pi.id).to.exist
+        expect(err).to.not.exist()
+        expect(pi.id).to.exist()
         expect(pi.id).to.deep.equal(id)
         done()
       })
