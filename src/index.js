@@ -95,9 +95,6 @@ function PeerInfo (peerId) {
     })
     return result
   }
-
-  // TODO: add features to fetch multiaddr using filters
-  // look at https://github.com/whyrusleeping/js-mafmt/blob/master/src/index.js
 }
 
 PeerInfo.create = (id, callback) => {
@@ -116,4 +113,10 @@ PeerInfo.create = (id, callback) => {
   }
 
   callback(null, new PeerInfo(id))
+}
+
+PeerInfo.isPeerInfo = (peerInfo) => {
+  return Boolean(typeof peerInfo === 'object' &&
+    peerInfo.id &&
+    peerInfo.multiaddrs)
 }
