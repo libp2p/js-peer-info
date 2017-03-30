@@ -1,99 +1,36 @@
 'use strict'
 
 const Id = require('peer-id')
-const multiaddr = require('multiaddr')
-const uniqBy = require('lodash.uniqby')
-
-exports = module.exports = PeerInfo
-
-function ensureMultiaddr (addr) {
-  if (multiaddr.isMultiaddr(addr)) {
-    return addr
-  }
-
-  return multiaddr(addr)
-}
+const ensureMultiaddr = require('./utils').ensureMultiaddr
+const MultiaddrSet = require('./multiaddr-set')
+const assert = require('assert')
 
 // Peer represents a peer on the IPFS network
-function PeerInfo (peerId) {
-  if (!(this instanceof PeerInfo)) {
-    return new PeerInfo(peerId)
+class PeerInfo {
+  constructor (peerId) {
+    assert(peerId, 'Missing peerId. Use Peer.create(cb) to create one')
+
+    this.id = peerId
+    this.multiaddrs = new MultiaddrSet()
+    this.protocols = new Set()
+    this._connectedMultiaddr = undefined
   }
 
-  if (!peerId) {
-    throw new Error('Missing peerId. Use Peer.create(cb) to create one')
-  }
-
-  this.id = peerId
-
-  this.multiaddrs = []
-  const observedMultiaddrs = []
-
-  this.multiaddr = {}
-
-  this.multiaddr.add = (addr) => {
-    addr = ensureMultiaddr(addr)
-
-    var exists = false
-    this.multiaddrs.some((m, i) => {
-      if (m.equals(addr)) {
-        exists = true
-        return true
-      }
-    })
-    if (!exists) {
-      this.multiaddrs.push(addr)
+  // only stores the current multiaddr being used
+  connect (ma) {
+    ma = ensureMultiaddr(ma)
+    if (!this.multiaddrs.has(ma)) {
+      throw new Error('can\'t be connected to missing multiaddr from set')
     }
+    this._connectedMultiaddr = ma
   }
 
-  // to prevent multiaddr explosion
-  this.multiaddr.addSafe = (addr) => {
-    addr = ensureMultiaddr(addr)
-
-    var check = false
-    observedMultiaddrs.some((m, i) => {
-      if (m.equals(addr)) {
-        this.multiaddr.add(addr)
-        observedMultiaddrs.splice(i, 1)
-        check = true
-      }
-    })
-    if (!check) {
-      observedMultiaddrs.push(addr)
-    }
+  disconnect () {
+    this._connectedMultiaddr = undefined
   }
 
-  this.multiaddr.rm = (addr) => {
-    addr = ensureMultiaddr(addr)
-
-    this.multiaddrs.some((m, i) => {
-      if (m.equals(addr)) {
-        this.multiaddrs.splice(i, 1)
-        return true
-      }
-    })
-  }
-
-  this.multiaddr.replace = (existing, fresh) => {
-    if (!Array.isArray(existing)) {
-      existing = [existing]
-    }
-    if (!Array.isArray(fresh)) {
-      fresh = [fresh]
-    }
-    existing.forEach((m) => {
-      this.multiaddr.rm(m)
-    })
-    fresh.forEach((m) => {
-      this.multiaddr.add(m)
-    })
-  }
-
-  this.distinctMultiaddr = () => {
-    var result = uniqBy(this.multiaddrs, function (item) {
-      return [item.toOptions().port, item.toOptions().transport].join()
-    })
-    return result
+  isConnected () {
+    return Boolean(this._connectedMultiaddr)
   }
 }
 
@@ -120,3 +57,5 @@ PeerInfo.isPeerInfo = (peerInfo) => {
     peerInfo.id &&
     peerInfo.multiaddrs)
 }
+
+module.exports = PeerInfo
