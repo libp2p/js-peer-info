@@ -259,9 +259,9 @@ describe('peer-info', () => {
   it('.connect .disconnect', () => {
     pi.multiaddrs.add('/ip4/127.0.0.1/tcp/5001')
     pi.connect('/ip4/127.0.0.1/tcp/5001')
-    expect(pi.isConnected()).to.equal(true)
+    expect(pi.isConnected()).to.exist()
     pi.disconnect()
-    expect(pi.isConnected()).to.equal(false)
+    expect(pi.isConnected()).to.not.exist()
     expect(() => pi.connect('/ip4/127.0.0.1/tcp/5001/ws')).to.throw()
   })
 

@@ -30,7 +30,7 @@ class PeerInfo {
   }
 
   isConnected () {
-    return Boolean(this._connectedMultiaddr)
+    return this._connectedMultiaddr
   }
 }
 
