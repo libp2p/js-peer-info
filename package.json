@@ -48,6 +48,7 @@
     "peer-id": "^0.8.7"
   },
   "contributors": [
+    "Arnaud <arnaud.valensi@gmail.com>",
     "David Dias <daviddias.p@gmail.com>",
     "David Dias <mail@daviddias.me>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
@@ -56,6 +57,7 @@
     "Sid Harder <sideharder@gmail.com>",
     "Stephen Whitmore <stephen.whitmore@gmail.com>",
     "haad <haad@headbanggames.com>",
-    "npmcdn-to-unpkg-bot <npmcdn-to-unpkg-bot@users.noreply.github.com>"
+    "npmcdn-to-unpkg-bot <npmcdn-to-unpkg-bot@users.noreply.github.com>",
+    "Łukasz Kurowski <crackcomm@users.noreply.github.com>"
   ]
 }
