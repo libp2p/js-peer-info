@@ -72,18 +72,16 @@ Loading this module through a script tag will make the `PeerInfo` obj available 
 
 ```js
 const PeerInfo = require('peer-info')
-const multiaddr = require('multiaddr')
-
 const peer = new PeerInfo()
 
 // TCP port 5001
-peer.multiaddrs.add(multiaddr('/ip4/1.2.3.4/tcp/5001'))
+peer.multiaddrs.add('/ip4/1.2.3.4/tcp/5001')
 
 // UDP port 8001
-peer.multiaddrs.add(multiaddr('/ip4/1.2.3.4/udp/8001'))
+peer.multiaddrs.add('/ip4/1.2.3.4/udp/8001')
 
 // mic/speaker soundwaves using frequencies 697 and 1209
-peer.multiaddrs.add(multiaddr('/sonic/bfsk/697/1209'))
+peer.multiaddrs.add('/sonic/bfsk/697/1209')
 ```
 
 ## API
