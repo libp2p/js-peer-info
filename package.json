@@ -38,14 +38,14 @@
   "devDependencies": {
     "aegir": "^11.0.2",
     "buffer-loader": "0.0.1",
-    "chai": "^4.0.2",
-    "dirty-chai": "^2.0.0",
+    "chai": "^4.1.0",
+    "dirty-chai": "^2.0.1",
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
     "multiaddr": "^2.3.0",
     "lodash.uniqby": "^4.7.0",
-    "peer-id": "^0.8.7"
+    "peer-id": "^0.8.8"
   },
   "contributors": [
     "Arnaud <arnaud.valensi@gmail.com>",

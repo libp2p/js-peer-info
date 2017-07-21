@@ -10,14 +10,6 @@
 ![](https://img.shields.io/badge/npm-%3E%3D3.0.0-orange.svg?style=flat-square)
 ![](https://img.shields.io/badge/Node.js-%3E%3D4.0.0-orange.svg?style=flat-square)
 
-<!-- [![Sauce Test Status](https://saucelabs.com/browser-matrix/ipfs-js-peer-info.svg)](https://saucelabs.com/u/ipfs-js-peer-info) -->
-
-> A PeerInfo object contains information about a
-> [PeerID](https://github.com/libp2p/js-peer-id) and its
-> [multiaddrs](https://github.com/libp2p/js-multiaddr). This module is used by
-> [IPFS](https://github.com/ipfs/ipfs) and
-> [libp2p](https://github.com/libp2p/js-libp2p).
-
 ## Table of Contents
 
 - [Installation](#installation)
