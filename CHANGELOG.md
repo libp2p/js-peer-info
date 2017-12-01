@@ -1,3 +1,8 @@
+<a name="0.11.2"></a>
+## [0.11.2](https://github.com/libp2p/js-peer-info/compare/v0.11.1...v0.11.2) (2017-12-01)
+
+
+
 <a name="0.11.1"></a>
 ## [0.11.1](https://github.com/libp2p/js-peer-info/compare/v0.11.0...v0.11.1) (2017-11-09)
 
