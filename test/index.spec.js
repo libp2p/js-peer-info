@@ -5,28 +5,29 @@ const chai = require('chai')
 const dirtyChai = require('dirty-chai')
 chai.use(dirtyChai)
 const expect = chai.expect
-const PeerId = require('peer-id')
+const Id = require('peer-id')
 const Multiaddr = require('multiaddr')
-const PeerInfo = require('../src')
+const Info = require('../src')
+const peerIdJSON = require('./peer-test.json')
 
 describe('peer-info', () => {
   let pi
 
   beforeEach((done) => {
-    PeerId.create({bits: 512}, (err, id) => {
+    Id.create({bits: 512}, (err, id) => {
       if (err) {
         return done(err)
       }
-      pi = new PeerInfo(id)
+      pi = new Info(id)
       done()
     })
   })
 
-  it('create with Id', (done) => {
-    PeerId.create({bits: 512}, (err, id) => {
+  it('create with Id class', (done) => {
+    Id.create({bits: 512}, (err, id) => {
       expect(err).to.not.exist()
-      const pi = new PeerInfo(id)
-      const pi2 = new PeerInfo(id)
+      const pi = new Info(id)
+      const pi2 = new Info(id)
       expect(pi.id).to.exist()
       expect(pi.id).to.eql(id)
       expect(pi2).to.exist()
@@ -37,27 +38,37 @@ describe('peer-info', () => {
   })
 
   it('throws when not passing an Id', () => {
-    expect(() => new PeerInfo()).to.throw()
+    expect(() => new Info()).to.throw()
   })
 
   it('isPeerInfo', () => {
-    expect(PeerInfo.isPeerInfo(pi)).to.equal(true)
-    expect(PeerInfo.isPeerInfo(pi.id)).to.equal(false)
-    expect(PeerInfo.isPeerInfo('bananas')).to.equal(false)
+    expect(Info.isPeerInfo(pi)).to.equal(true)
+    expect(Info.isPeerInfo(pi.id)).to.equal(false)
+    expect(Info.isPeerInfo('bananas')).to.equal(false)
   })
 
-  it('PeerInfo.create', (done) => {
-    PeerInfo.create({bits: 512}, (err, pi) => {
+  it('.create', function (done) {
+    this.timeout(20 * 1000)
+    Info.create((err, pi) => {
       expect(err).to.not.exist()
       expect(pi.id).to.exist()
       done()
     })
   })
 
-  it('PeerInfo.create with existing id', (done) => {
-    PeerId.create({bits: 512}, (err, id) => {
+  it('create with Id as JSON', (done) => {
+    Info.create(peerIdJSON, (err, pi) => {
       expect(err).to.not.exist()
-      PeerInfo.create(id, (err, pi) => {
+      expect(pi.id).to.exist()
+      expect(pi.id.toJSON()).to.eql(peerIdJSON)
+      done()
+    })
+  })
+
+  it('.create with existing id', (done) => {
+    Id.create({bits: 512}, (err, id) => {
+      expect(err).to.not.exist()
+      Info.create(id, (err, pi) => {
         expect(err).to.not.exist()
         expect(pi.id).to.exist()
         expect(pi.id.isEqual(id)).to.equal(true)
