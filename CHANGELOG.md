@@ -1,3 +1,13 @@
+<a name="0.11.4"></a>
+## [0.11.4](https://github.com/libp2p/js-peer-info/compare/v0.11.3...v0.11.4) (2017-12-14)
+
+
+### Features
+
+* support PeerInfo.create(IdJSON, cb) as well ([#61](https://github.com/libp2p/js-peer-info/issues/61)) ([5b8b160](https://github.com/libp2p/js-peer-info/commit/5b8b160))
+
+
+
 <a name="0.11.3"></a>
 ## [0.11.3](https://github.com/libp2p/js-peer-info/compare/v0.11.1...v0.11.3) (2017-12-01)
 
