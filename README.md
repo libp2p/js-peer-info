@@ -106,7 +106,7 @@ A list of multiaddresses instances that `peer` can be reached at.
 - `addr: Multiaddr`
 
 Adds a new multiaddress that `peer` can be reached at. `addr` is an instance of
-a [multiaddr](https://github.com/libp2p/js-multiaddr).
+a [multiaddr](https://github.com/multiformats/js-multiaddr).
 
 ### `.multiaddrs.addSafe(addr)`
 
