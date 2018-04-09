@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "multiaddr": "^4.0.0",
+    "mafmt": "^4.0.0",
     "lodash.uniqby": "^4.7.0",
     "peer-id": "~0.10.7"
   },

@@ -52,6 +52,15 @@ class MultiaddrSet {
     return this._multiaddrs.forEach(fn)
   }
 
+  filterBy (maFmt) {
+    if (typeof maFmt !== 'object' ||
+      typeof maFmt.matches !== 'function' ||
+      typeof maFmt.partialMatch !== 'function' ||
+      typeof maFmt.toString !== 'function') return []
+
+    return this._multiaddrs.filter((ma) => maFmt.matches(ma))
+  }
+
   has (ma) {
     ma = ensureMultiaddr(ma)
     return this._multiaddrs.some((m) => m.equals(ma))

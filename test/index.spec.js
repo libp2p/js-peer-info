@@ -7,6 +7,7 @@ chai.use(dirtyChai)
 const expect = chai.expect
 const Id = require('peer-id')
 const Multiaddr = require('multiaddr')
+const mafmt = require('mafmt')
 const Info = require('../src')
 const peerIdJSON = require('./peer-test.json')
 
@@ -258,6 +259,16 @@ describe('peer-info', () => {
     pi.multiaddrs.forEach((ma) => {
       expect(pi.multiaddrs.has(ma)).to.equal(true)
     })
+  })
+
+  it('multiaddrs.filterBy', () => {
+    const ma1 = Multiaddr('/ip4/127.0.0.1/tcp/7000')
+    const ma2 = Multiaddr('/ip4/127.0.0.1/udp/5001')
+    pi.multiaddrs.add(ma1)
+    pi.multiaddrs.add(ma2)
+    const maddrs = pi.multiaddrs.filterBy(mafmt.TCP)
+    expect(maddrs.length).to.eq(1)
+    expect(maddrs[0].equals(ma1)).to.eq(true)
   })
 
   it('multiaddrs.toArray', () => {
