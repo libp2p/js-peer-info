@@ -1,3 +1,13 @@
+<a name="0.14.1"></a>
+## [0.14.1](https://github.com/libp2p/js-peer-info/compare/v0.14.0...v0.14.1) (2018-04-09)
+
+
+### Features
+
+* add filter functionality for multiaddr ([#63](https://github.com/libp2p/js-peer-info/issues/63)) ([0dc8e03](https://github.com/libp2p/js-peer-info/commit/0dc8e03))
+
+
+
 <a name="0.14.0"></a>
 # [0.14.0](https://github.com/libp2p/js-peer-info/compare/v0.13.0...v0.14.0) (2018-04-05)
 
