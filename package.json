@@ -1,6 +1,6 @@
 {
   "name": "peer-info",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "description": "IPFS Peer abstraction JavaScript implementation",
   "leadMaintainer": "Pedro Teixeira <i@pgte.me>",
   "main": "src/index.js",
@@ -51,7 +51,9 @@
     "David Dias <mail@daviddias.me>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Greenkeeper <support@greenkeeper.io>",
+    "Hugo Dias <hugomrdias@gmail.com>",
     "Orie Steele <orie@ohs.io>",
+    "Pedro Teixeira <i@pgte.me>",
     "Richard Littauer <richard.littauer@gmail.com>",
     "Sid Harder <sideharder@gmail.com>",
     "Stephen Whitmore <stephen.whitmore@gmail.com>",
