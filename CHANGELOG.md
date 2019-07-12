@@ -1,3 +1,22 @@
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/libp2p/js-peer-info/compare/v0.15.1...v0.16.0) (2019-07-12)
+
+
+### Features
+
+* async await ([#67](https://github.com/libp2p/js-peer-info/issues/67)) ([63edac1](https://github.com/libp2p/js-peer-info/commit/63edac1))
+
+
+### BREAKING CHANGES
+
+* API refactored to use async/await
+
+chore: update node version
+fix: better verifications on create()
+chore: deps and linting
+
+
+
 <a name="0.15.1"></a>
 ## [0.15.1](https://github.com/libp2p/js-peer-info/compare/v0.15.0...v0.15.1) (2019-01-09)
 
