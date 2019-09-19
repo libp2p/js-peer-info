@@ -1,6 +1,6 @@
 {
   "name": "peer-info",
-  "version": "0.16.2",
+  "version": "0.17.0",
   "description": "IPFS Peer abstraction JavaScript implementation",
   "leadMaintainer": "Vasco Santos <vasco.santos@moxy.studio>",
   "main": "src/index.js",
