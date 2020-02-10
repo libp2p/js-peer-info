@@ -10,6 +10,7 @@
     "test": "aegir test",
     "test:node": "aegir test -t node",
     "test:browser": "aegir test -t browser",
+    "test:types": "npx tsc",
     "release": "aegir release",
     "release-minor": "aegir release --type minor",
     "release-major": "aegir release --type major",
@@ -33,6 +34,9 @@
   "bugs": "https://github.com/libp2p/js-peer-info/issues",
   "homepage": "https://github.com/libp2p/js-peer-info",
   "devDependencies": {
+    "@types/chai": "^4.2.8",
+    "@types/dirty-chai": "^2.0.2",
+    "@types/mocha": "^7.0.1",
     "aegir": "^20.0.0",
     "buffer-loader": "0.1.0",
     "bundlesize": "~0.18.0",
@@ -40,8 +44,8 @@
     "dirty-chai": "^2.0.1"
   },
   "dependencies": {
-    "mafmt": "^7.0.0",
-    "multiaddr": "^7.1.0",
+    "mafmt": "^7.1.0",
+    "multiaddr": "^7.3.0",
     "peer-id": "~0.13.2",
     "unique-by": "^1.0.0"
   },
