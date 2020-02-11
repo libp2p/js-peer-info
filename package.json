@@ -1,6 +1,6 @@
 {
   "name": "peer-info",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "description": "IPFS Peer abstraction JavaScript implementation",
   "leadMaintainer": "Vasco Santos <vasco.santos@moxy.studio>",
   "main": "src/index.js",
@@ -52,6 +52,7 @@
   "contributors": [
     "Alan Shaw <alan.shaw@protocol.ai>",
     "Arnaud <arnaud.valensi@gmail.com>",
+    "Cayman <caymannava@gmail.com>",
     "David Dias <daviddias.p@gmail.com>",
     "David Dias <mail@daviddias.me>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
