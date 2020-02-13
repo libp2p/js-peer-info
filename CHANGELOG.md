@@ -1,3 +1,13 @@
+<a name="0.17.3"></a>
+## [0.17.3](https://github.com/libp2p/js-peer-info/compare/v0.17.2...v0.17.3) (2020-02-13)
+
+
+### Bug Fixes
+
+* remove use of assert module ([#88](https://github.com/libp2p/js-peer-info/issues/88)) ([a0613c5](https://github.com/libp2p/js-peer-info/commit/a0613c5))
+
+
+
 <a name="0.17.2"></a>
 ## [0.17.2](https://github.com/libp2p/js-peer-info/compare/v0.17.1...v0.17.2) (2020-02-11)
 
