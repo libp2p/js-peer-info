@@ -1,6 +1,6 @@
 {
   "name": "peer-info",
-  "version": "0.17.3",
+  "version": "0.17.4",
   "description": "IPFS Peer abstraction JavaScript implementation",
   "leadMaintainer": "Vasco Santos <vasco.santos@moxy.studio>",
   "main": "src/index.js",
@@ -66,6 +66,7 @@
     "Orie Steele <orie@ohs.io>",
     "Pedro Teixeira <i@pgte.me>",
     "Richard Littauer <richard.littauer@gmail.com>",
+    "Robert Kiel <robert.kiel@validitylabs.org>",
     "Sid Harder <sideharder@gmail.com>",
     "Stephen Whitmore <stephen.whitmore@gmail.com>",
     "Vasco Santos <vasco.santos@moxy.studio>",
