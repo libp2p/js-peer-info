@@ -28,9 +28,16 @@ declare class MultiaddrSet {
   distinct(): Multiaddr[];
 }
 
+declare namespace PeerInfo {
+  function create(peerId?: PeerId): Promise<PeerInfo>;
+
+  function isPeerInfo(peerInfo: any): peerInfo is PeerInfo;
+}
+
 declare class PeerInfo {
   id: PeerId;
   multiaddrs: MultiaddrSet;
+  protocols: Set<string>;
 
   constructor(peerId: PeerId);
 
@@ -39,10 +46,6 @@ declare class PeerInfo {
   disconnect(): void;
 
   isConnected(): boolean;
-
-  static create(peerId?: PeerId): Promise<PeerInfo>;
-
-  static isPeerInfo(peerInfo: unknown): peerInfo is PeerInfo;
 }
 
 export = PeerInfo;
