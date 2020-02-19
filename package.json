@@ -1,6 +1,6 @@
 {
   "name": "peer-info",
-  "version": "0.17.4",
+  "version": "0.17.5",
   "description": "IPFS Peer abstraction JavaScript implementation",
   "leadMaintainer": "Vasco Santos <vasco.santos@moxy.studio>",
   "main": "src/index.js",
@@ -51,30 +51,16 @@
     "unique-by": "^1.0.0"
   },
   "contributors": [
-    "Alan Shaw <alan.shaw@protocol.ai>",
-    "Alex Potsides <alex@achingbrain.net>",
-    "Arnaud <arnaud.valensi@gmail.com>",
-    "Cayman <caymannava@gmail.com>",
     "David Dias <daviddias.p@gmail.com>",
-    "David Dias <mail@daviddias.me>",
-    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
-    "Greenkeeper <support@greenkeeper.io>",
-    "Henrique Dias <hacdias@gmail.com>",
-    "Hugo Dias <hugomrdias@gmail.com>",
-    "Jacob Heun <jacobheun@gmail.com>",
-    "Mikerah <mikerahqc@protonmail.com>",
-    "Orie Steele <orie@ohs.io>",
+    "dignifiedquire <dignifiedquire@gmail.com>",
     "Pedro Teixeira <i@pgte.me>",
-    "Richard Littauer <richard.littauer@gmail.com>",
+    "Hugo Dias <hugomrdias@gmail.com>",
+    "ᴠɪᴄᴛᴏʀ ʙᴊᴇʟᴋʜᴏʟᴍ <victorbjelkholm@gmail.com>",
+    "Mikerah <mikerahqc@protonmail.com>",
     "Robert Kiel <robert.kiel@validitylabs.org>",
     "Sid Harder <sideharder@gmail.com>",
-    "Stephen Whitmore <stephen.whitmore@gmail.com>",
-    "Vasco Santos <vasco.santos@moxy.studio>",
-    "Vasco Santos <vasco.santos@ua.pt>",
     "Zane Starr <zcstarr@gmail.com>",
-    "haad <haad@headbanggames.com>",
-    "npmcdn-to-unpkg-bot <npmcdn-to-unpkg-bot@users.noreply.github.com>",
-    "Łukasz Kurowski <crackcomm@users.noreply.github.com>",
-    "ᴠɪᴄᴛᴏʀ ʙᴊᴇʟᴋʜᴏʟᴍ <victorbjelkholm@gmail.com>"
+    "Arnaud <arnaud.valensi@gmail.com>",
+    "Orie Steele <orie@ohs.io>"
   ]
 }
